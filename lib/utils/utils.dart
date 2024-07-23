@@ -10,7 +10,7 @@ class Utils {
         gravity: ToastGravity.BOTTOM,
         textColor: Colors.white,
         toastLength: Toast.LENGTH_SHORT,
-        fontSize: 20);
+        fontSize: 14);
 
     // Fluttertoast.showToast(
     //     msg: "This is Center Short Toast",
@@ -29,7 +29,7 @@ class Utils {
         timeInSecForIosWeb: 1,
         gravity: ToastGravity.BOTTOM,
         textColor: Colors.white,
-        toastLength: Toast.LENGTH_LONG,
-        fontSize: 20);
+        toastLength: Toast.LENGTH_SHORT,
+        fontSize: 14);
   }
 }
