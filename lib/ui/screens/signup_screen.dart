@@ -92,7 +92,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   setState(() {
                     isLoading = false;
                   });
-                  Utils().toastMessage(error.toString());
+                  Utils().toastErrorMessage(error.toString());
                 });
               }
             },
