@@ -2,7 +2,7 @@ import "dart:ffi";
 
 import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
-import "package:helloworld/ui/screens/post_screen.dart";
+import "../post/post_screen.dart";
 import "package:helloworld/utils/utils.dart";
 import "package:helloworld/widgets/round_button.dart";
 

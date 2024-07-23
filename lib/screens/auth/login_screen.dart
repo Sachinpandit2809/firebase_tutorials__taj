@@ -2,9 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:helloworld/ui/screens/login_with_phone_number.dart';
-import 'package:helloworld/ui/screens/post_screen.dart';
-import 'package:helloworld/ui/screens/signup_screen.dart';
+import 'login_with_phone_number.dart';
+import '../post/post_screen.dart';
+import 'signup_screen.dart';
 import 'package:helloworld/utils/utils.dart';
 
 import 'package:helloworld/widgets/round_button.dart';

@@ -80,7 +80,7 @@
 
 import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
-import "package:helloworld/ui/screens/otp_screen.dart";
+import "otp_screen.dart";
 import "package:helloworld/utils/utils.dart";
 import "package:helloworld/widgets/round_button.dart";
 
@@ -110,9 +110,10 @@ class _LoginWithPhoneNumberState extends State<LoginWithPhoneNumber> {
           Padding(
             padding: const EdgeInsets.all(18.0),
             child: TextFormField(
+              
               controller: phoneNumberController,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(hintText: "+91 111 2222 333"),
+              // keyboardType: TextInputType.text,
+              decoration: const InputDecoration(hintText: "+91 111 2222 333"),
             ),
           ),
           SizedBox(
