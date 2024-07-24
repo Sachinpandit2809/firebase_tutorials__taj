@@ -184,7 +184,7 @@ class _PostScreenState extends State<PostScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => AddPostScreen()));
+              MaterialPageRoute(builder: (context) =>const AddPostScreen()));
         },
         child: const Icon(Icons.add),
       ),

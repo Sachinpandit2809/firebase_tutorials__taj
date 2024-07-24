@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:helloworld/screens/firestore/firestore_screen.dart';
 import 'login_with_phone_number.dart';
 import '../post/post_screen.dart';
 import 'signup_screen.dart';
@@ -103,7 +104,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const PostScreen()));
+                            builder: (context) => const FirestoreScreen()));
+
+                    // builder: (context) => const PostScreen()));
                     setState(() {
                       loading = false;
                     });
