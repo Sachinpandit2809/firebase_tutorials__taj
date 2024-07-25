@@ -3,6 +3,7 @@ import "package:firebase_database/firebase_database.dart";
 import "package:flutter/material.dart";
 import "package:helloworld/screens/post/post_screen.dart";
 import "package:helloworld/utils/utils.dart";
+import "package:helloworld/widgets/my_drawer.dart";
 import "package:helloworld/widgets/round_button.dart";
 
 class AddPostScreen extends StatefulWidget {
@@ -19,6 +20,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: MyDrawer(),
       appBar: AppBar(
         backgroundColor: Colors.purple,
         title: const Text("Add post"),

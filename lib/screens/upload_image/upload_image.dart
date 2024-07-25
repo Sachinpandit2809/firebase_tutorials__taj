@@ -4,7 +4,11 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:helloworld/screens/firestore/firestore_screen.dart';
+import 'package:helloworld/screens/post/post_screen.dart';
+import 'package:helloworld/screens/upload_image/new_upload_image.dart';
 import 'package:helloworld/utils/utils.dart';
+import 'package:helloworld/widgets/my_drawer.dart';
 import 'package:helloworld/widgets/round_button.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -41,6 +45,7 @@ class _UploadImageState extends State<UploadImage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: MyDrawer(),
       appBar: AppBar(
         backgroundColor: Colors.amber,
         title: Text("Upload Image "),

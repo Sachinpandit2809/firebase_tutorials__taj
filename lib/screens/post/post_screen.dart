@@ -2,8 +2,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
+import 'package:helloworld/screens/firestore/firestore_screen.dart';
 import 'package:helloworld/screens/post/add_post_screen.dart';
+import 'package:helloworld/screens/upload_image/new_upload_image.dart';
+import 'package:helloworld/screens/upload_image/upload_image.dart';
 import 'package:helloworld/utils/utils.dart';
+import 'package:helloworld/widgets/my_drawer.dart';
 import '../auth/login_screen.dart';
 
 class PostScreen extends StatefulWidget {
@@ -24,6 +28,39 @@ class _PostScreenState extends State<PostScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // drawer: Drawer(
+      //   child: ListView(
+      //     padding: EdgeInsets.zero,
+      //     children: <Widget>[
+      //       DrawerHeader(
+      //         decoration: BoxDecoration(
+      //           color: Colors.blue,
+      //         ),
+      //         child: Text(
+      //           'Drawer Header',
+      //           style: TextStyle(
+      //             color: Colors.white,
+      //             fontSize: 24,
+      //           ),
+      //         ),
+      //       ),
+      //       ListTile(
+      //         leading: Icon(Icons.message),
+      //         title: Text('Messages'),
+      //       ),
+      //       ListTile(
+      //         leading: Icon(Icons.account_circle),
+      //         title: Text('Profile'),
+      //       ),
+      //       ListTile(
+      //         leading: Icon(Icons.settings),
+      //         title: Text('Settings'),
+      //       ),
+      //     ],
+      //   ),
+      // ),
+
+      drawer: MyDrawer(),
       appBar: AppBar(
         backgroundColor: Colors.purple,
         title: const Text(" Post "),
@@ -184,7 +221,7 @@ class _PostScreenState extends State<PostScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) =>const AddPostScreen()));
+              MaterialPageRoute(builder: (context) => const AddPostScreen()));
         },
         child: const Icon(Icons.add),
       ),

@@ -17,7 +17,7 @@ class SplashServices {
       Timer(
           const Duration(seconds: 3),
           () => Navigator.push(
-              context, MaterialPageRoute(builder: (context) => UploadImage())));
+              context, MaterialPageRoute(builder: (context) => PostScreen())));
 
       // MaterialPageRoute(builder: (context) => const PostScreen())));
     } else {

@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:helloworld/screens/firestore/add_firestore_data.dart';
 import 'package:helloworld/screens/post/add_post_screen.dart';
 import 'package:helloworld/utils/utils.dart';
+import 'package:helloworld/widgets/my_drawer.dart';
 import '../auth/login_screen.dart';
 
 class FirestoreScreen extends StatefulWidget {
@@ -34,6 +35,7 @@ class _FirestoreScreenState extends State<FirestoreScreen> {
         return true;
       },
       child: Scaffold(
+        drawer: MyDrawer(),
         appBar: AppBar(
           backgroundColor: Colors.purple,
           title: const Text(" FireStoreScreen "),

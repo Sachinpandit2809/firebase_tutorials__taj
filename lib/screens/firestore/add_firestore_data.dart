@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:helloworld/screens/firestore/firestore_screen.dart';
 import 'package:helloworld/utils/utils.dart';
+import 'package:helloworld/widgets/my_drawer.dart';
 import "package:helloworld/widgets/round_button.dart";
 
 class AddFirestoreData extends StatefulWidget {
@@ -19,6 +20,7 @@ class _AddFirestoreDataState extends State<AddFirestoreData> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: MyDrawer(),
       appBar: AppBar(
         backgroundColor: Colors.purple,
         title: const Text("AddDireStoreDAta"),
