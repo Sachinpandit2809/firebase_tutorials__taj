@@ -37,7 +37,7 @@ class _OtpScreenState extends State<OtpScreen> {
             child: TextFormField(
               controller: otpController,
               keyboardType: TextInputType.number,
-              decoration: InputDecoration(hintText: "+91 111 2222 333"),
+              decoration: InputDecoration(hintText: "000000"),
             ),
           ),
           SizedBox(

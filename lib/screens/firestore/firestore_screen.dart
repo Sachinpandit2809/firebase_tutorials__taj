@@ -22,6 +22,7 @@ class _FirestoreScreenState extends State<FirestoreScreen> {
   final fireStore = FirebaseFirestore.instance.collection("users").snapshots();
   final searchFilterController = TextEditingController();
   final editController = TextEditingController();
+  final ref = FirebaseFirestore.instance.collection('users');
 
   final deleteFilterController = TextEditingController();
 
@@ -42,6 +43,7 @@ class _FirestoreScreenState extends State<FirestoreScreen> {
             IconButton(
                 onPressed: () async {
                   await auth.signOut();
+                  // ignore: use_build_context_synchronously
                   Navigator.push(context,
                       (MaterialPageRoute(builder: (context) => LoginScreen())));
                 },
@@ -79,8 +81,45 @@ class _FirestoreScreenState extends State<FirestoreScreen> {
                         itemCount: snapshot.data!.docs.length,
                         itemBuilder: (context, index) {
                           return ListTile(
+                            // ignore: prefer_interpolation_to_compose_strings
                             title: Text("${index + 1}" +
                                 snapshot.data!.docs[index]['title']),
+                            subtitle: Text(snapshot.data!.docs[index]['id']),
+                            trailing: PopupMenuButton(
+                                icon: const Icon(Icons.more_vert),
+                                itemBuilder: (BuildContext context) {
+                                  return [
+                                    PopupMenuItem(
+                                      child: const Text("update"),
+                                      onTap: () {
+                                        // Navigator.pop(context);
+                                        showMyDialog(
+                                            snapshot.data!.docs[index]['title'],
+                                            snapshot.data!.docs[index]['id']);
+                                      },
+                                    ),
+                                    PopupMenuItem(
+                                      child: const Text("delete"),
+                                      onTap: () {
+                                        {
+                                          dynamic id =
+                                              snapshot.data!.docs[index]['id'];
+                                          ref.doc(id).delete().then((onValue) {
+                                            Utils()
+                                                .toastSuccessMessage("deleted");
+                                            // Navigator.pop(context);
+                                          }).onError(
+                                            (error, stackTrace) {
+                                              Utils().toastErrorMessage(
+                                                  error.toString());
+                                              Navigator.pop(context);
+                                            },
+                                          );
+                                        }
+                                      },
+                                    )
+                                  ];
+                                }),
                           );
                         }));
               },
@@ -117,7 +156,22 @@ class _FirestoreScreenState extends State<FirestoreScreen> {
                   Navigator.pop(context);
                 },
                 child: Text("cancel")),
-            TextButton(onPressed: () async {}, child: const Text("update"))
+            TextButton(
+                onPressed: () async {
+                  ref
+                      .doc(id)
+                      .update({'title': editController.text.toString()}).then(
+                          (onValue) {
+                    Utils().toastSuccessMessage("updated");
+                    Navigator.pop(context);
+                  }).onError(
+                    (error, stackTrace) {
+                      Utils().toastErrorMessage(error.toString());
+                      Navigator.pop(context);
+                    },
+                  );
+                },
+                child: const Text("update"))
           ],
         );
       },
